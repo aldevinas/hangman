@@ -1,0 +1,17 @@
+.wrapper{
+    width: 60vw;
+    height: 80vh;
+    background-color: cadetblue;
+    margin: auto;
+    padding: 2vh;
+
+}
+h1{
+    text-align: center;
+    color: floralwhite;
+}
+.hangmanPicture{
+    margin: auto;
+    width: 750px;
+    height: 393px;
+}
