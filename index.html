@@ -9,24 +9,21 @@
   <title>Hangman</title>
 </head>
 <body>
-    <div class="wrapper">
-      <h1>HANGMAN</h1>
-      <div class="hangmanPicture">
-        <img src="pictures/hangman1.jpg" alt="hangman">
-      </div>
+<div class="container">
+  <h1>Hangman Game</h1>
+  <div class="text-center">
+    <img id='hangmanPic' src="pictures/0.jpg" alt="pic">
+    <p class="guessBox" id="showGuess"></p>
+    <div class="">Wrong Guesses: <span id='mistakes'>0</span> of <span id='maxWrong'></span></div>
+    <div class="lettersContainer">
+      <div id="keyboard"></div>
       <div>
-        <div class="guessBox">
-
-        </div>
+        <button class="reset" onClick="reset()">New Word</button>
       </div>
-      <div>
-        <div class="lettersContainer">
-          
-        </div>
-      </div>
-
 
     </div>
 
+  </div>
+</div>
 </body>
 </html>
