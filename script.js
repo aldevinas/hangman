@@ -7,8 +7,11 @@ let maxWrong = 6;
 let failsCount = 0;
 let guessed = [];
 let wordStatus = null;
+let resetBtn = document.getElementsByClassName('reset')[0];
 
-function generateButtons() {
+resetBtn.addEventListener('click', reset)
+
+function keyboardLetters() {
   document.getElementById('keyboard').innerHTML = 'QWERTYUIOPASDFGHJKLZXCVBNM'.split('').map(letter =>
     `
       <button
@@ -20,7 +23,7 @@ function generateButtons() {
       </button>
     `).join('');
 }
-generateButtons();
+keyboardLetters();
 
 function randomWord() {
   secretWord = hiddenWordsArr[Math.floor(Math.random() * hiddenWordsArr.length)];
@@ -38,12 +41,47 @@ function handleGuess(chosenLetter) {
     failsCount++;
     updateMistakes();
     checkIfGameLost();
-    updateHangmanPicture();
+    changePicture();
   }
 }
 
-function updateHangmanPicture() {
-  document.getElementById('hangmanPic').src = 'pictures/' + failsCount + '.jpg';
+function changePicture() {
+  document.getElementById('hangmanPicture').src = 'pictures/' + failsCount + '.jpg';
 }
+
+function checkIfGameWon() {
+  if (wordStatus === secretWord) {
+    document.getElementById('keyboard').innerHTML = 'BRAVO! You are smart!';
+  }
+}
+
+function checkIfGameLost() {
+  if (failsCount === maxWrong) {
+    document.getElementById('showGuess').innerHTML = 'The secret word was: ' + secretWord;
+    document.getElementById('keyboard').innerHTML = 'Try again? ';
+  }
+}
+
+function guessedWord() {
+  wordStatus = secretWord.split('').map(letter => (guessed.indexOf(letter) >= 0 ? letter : " _ ")).join('');
+  document.getElementById('showGuess').innerHTML = wordStatus;
+}
+guessedWord();
+
+function updateMistakes() {
+  document.getElementById('mistakes').innerHTML = failsCount;
+}
+maxWrong = document.getElementById('maxWrong').innerHTML;
+
+function reset() {
+  failsCount = 0;
+  guessed = [];
+  document.getElementById('hangmanPicture').src = 'pictures/0.jpg';
+  randomWord();
+  guessedWord();
+  updateMistakes();
+  keyboardLetters();
+}
+
 
 

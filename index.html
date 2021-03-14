@@ -11,18 +11,19 @@
 <body>
 <div class="container">
   <h1>Hangman Game</h1>
-  <div class="text-center">
-    <img id='hangmanPic' src="pictures/0.jpg" alt="pic">
+  <div>
+    <div class="d-flex aac">
+      <img id='hangmanPicture' src="pictures/0.jpg" alt="pic">
+
+    </div>
     <p class="guessBox" id="showGuess"></p>
-    <div class="">Wrong Guesses: <span id='mistakes'>0</span> of <span id='maxWrong'></span></div>
+    <p>WRONG GUESSES: <span id='mistakes'>0</span></p>
     <div class="lettersContainer">
       <div id="keyboard"></div>
       <div>
-        <button class="reset" onClick="reset()">New Word</button>
+        <button class="reset">New Word</button>
       </div>
-
     </div>
-
   </div>
 </div>
 </body>

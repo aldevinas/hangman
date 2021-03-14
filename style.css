@@ -9,6 +9,18 @@ h1{
     text-align: center;
     color: floralwhite;
 }
+#hangmanPicture{
+    margin: auto;
+    width: 750px;
+    height: 393px;
+}
+.lettersContainer{
+    display: flex;
+    flex-wrap: wrap;
+    width: 80%;
+    height: auto;
+    margin: 5vh auto;
+}
 .letter{
     background-color: black;
     color: floralwhite;
@@ -31,3 +43,6 @@ h1{
     color: floralwhite;
     margin: auto;
 }
+.d-flex{display: flex;}
+.aac{align-items: center;}
+.acc{align-content: center;}
